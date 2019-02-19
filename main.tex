@@ -1,24 +1,10 @@
 %Tex spell check = en-US
 
+%------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%------------------------------------------------------------------------------------
 \documentclass[12pt,a4paper]{article}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage[english]{varioref}
-\usepackage[english]{babel}
-\usepackage{datetime}
-\usepackage{amsmath}
-\usepackage{booktabs}
-\usepackage{placeins}
-\usepackage{url}
-\usepackage{csquotes}
-\usepackage{adjustbox}
-\usepackage{listings}
-\usepackage{float}
-\usepackage{minted}
-\usepackage{enumitem}
-\usepackage{varwidth}
-\usepackage[multiple]{footmisc}
+\input{structure.tex} % Include the file specifying the document structure and custom commands
 
 
 \newlength{\storeparskip}
@@ -64,80 +50,101 @@
 \vfill
 \clearpage
 
+
+%------------------------------------------------------------------------------------
+%	INTRODUCTION
+%------------------------------------------------------------------------------------
 \section{Introduction}
 Claude Shannon, an engineer at Bell Telephone Laboratories, and Warren Weaver sought to identify the quickest and most efficient way to get a message from one point to another. As a result of their studies, they developed their model of communication.
 
-In these \textbf{three lab sessions} you are going to simulate a \textbf{communication model} as presented in Figure~\vref{fig:labo1multimedianetwerkendatatransmissiediagram}. This model is a simplified version of the Shannon-Weaver model of communication. The model will be implemented via \textbf{MATLAB}\footnote{Install the necessary toolboxes as described in Section~\ref{ap:sec:toolboxes}.} or \textbf{Python} (prefered).
+In these \textbf{three lab sessions} you are going to simulate a \textbf{communication model} as presented in Figure~\vref{fig:labo1multimedianetwerkendatatransmissiediagram}. This model is a simplified version of the Shannon-Weaver model of communication. The model will be implemented via \textbf{Python}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{labo_1_multimedianetwerken_datatransmissie_diagram}
+	\includegraphics[width=0.7\linewidth]{labo_1_multimedianetwerken_datatransmissie_diagram.pdf}
 	\caption{Simplified Model of Communication}\label{fig:labo1multimedianetwerkendatatransmissiediagram}
 \end{figure}
 
 
 \section{Communication Model}
-
-Encoding and decoding data is computation intensive. Therefore, choosing a small image (e.g.,~40$\times$40) is strongly advised. To facilitate interoperability between the communication blocks, we suggest using a \textbf{bit stream} or a \textbf{byte stream} to \textbf{exchange} data between these blocks, i.e.\ every block will receive and send a bit or byte stream to the next one.
-
-\subsection{Information Source}
 An \textbf{image} will serve as the \textbf{information source}. 
+%Encoding and decoding data is computation intensive. Therefore, choosing a small image (e.g.,~40$\times$40) is strongly advised. 
+To facilitate interoperability between the communication blocks, we suggest using a \textbf{bit stream} or a \textbf{byte stream} to \textbf{exchange} data between these blocks, i.e.\ every block will receive and send a bit or byte stream to the next one. %The MATLAB template will, by default, use bit streams while the Python template uses \texttt{uint\_8} (byte) streams.
+
+A Python template --and additional library functions-- can be found in the the following Github repository: \url{https://github.com/GillesC/Communication-Model-Python}.
 
 \subsection{Source Encoding and Decoding}
-Use \textbf{Huffman} and encoding as a \textbf{source encoding} mechanism.
+Use \textbf{Huffman} and \textbf{Lempel-Ziv-Welch} as a \textbf{source encoding} mechanism. Prior to using the provided template code, study the Huffman and Lempel-Ziv-Welch algorithm. 
+
+
+\begin{question}
+	What is the purpose of source encoding? Try to find an example of a real-life scenario where the effect of absence of source encoding would be clearly noticable.
+\end{question}
+
+\begin{question}
+	Why does the Lempel-Ziv-Welch Algorithm not group the first occurences of symbols when a combination of the symbols is present in the dictonary?
+\end{question}
+
+\begin{question}
+	What are the disadvantages of Huffman coding with respect to LZW-coding?
+\end{question}
+
+\begin{question}
+	What is the correlation between entropy and the number of bits per symbol? 
+\end{question}
+
+
 
 \subsection{Channel Encoding and Decoding}
-\textbf{Reed-Solomon} (RS) coding will be used for \textbf{channel encoding}. In this assignment modulation and channel characteristics can be neglected. The `transmitted' signal will be influenced by Additive white Gaussian noise (\textbf{AWGN}). Additionally, after applying Reed-Solomon encoding, the image can be altered through an image editor such as \textit{paint}. check if Reed-Solomon is able to resolve the introduced errors. 
+\textbf{Reed-Solomon} (RS) coding will be used for \textbf{channel encoding}. 
+In this assignment modulation and channel characteristics can be neglected.
+After applying Reed-Solomon encoding, 
+\begin{itemize}
+	\item Simulate storing to disk
+	\item Hence, simulate bit errors (with defined error rate)
+	\item check if Reed-Solomon is able to resolve the introduced errors and compare with the theoretical limit (Singleton bound).
+	\item burst errors
+	\item errasures
+\end{itemize}
 
-A MATLAB template --and additional library functions-- can be found in the Appendix.
-\textbf{TODO PYTHON}
+\begin{question}
+	Experiment with the code-word length of an RS message, and conclude.%
+\end{question}
+
+\begin{question}
+	Calculate the number of resolved and unrecoverable errors after introducing the bit errors and or errasures.
+\end{question}
+ 
+
+
 
 \section{Objectives}
 \begin{itemize}
-	\item Build data transmission blocks via MATLAB or Python.%
-	\item Experiment with the parameters such as the SNR or the code-word length of an RS message, and conclude.%
+	\item Build data transmission blocks via Python.%
 	\item Enable and disable blocks to determine their impact on the model.%
 	\item Measure the transmitted bit stream size of each block and conclude.
 	\item Measure the operation duration of each block and conclude.
 	For instance, why is Huffman decoding slower than Huffman encoding?
-	\item What is the correlation between entropy and the number of bits per symbol? (hint: Huffman)
-	\item Calculate the number of resolved and unrecoverable errors after adding noise.
 \end{itemize}
 
 \section{Report}
-Each student writes an \textbf{individual report}. This report must contain the \textbf{realization} of the aforementioned \textbf{objectives}. It must \textbf{demonstrate} that the student has \textbf{understood} the \textbf{communication model}. All MATLAB or Python \textbf{code} must be well \textbf{documented}.
-The report has to be send to \texttt{gilles.callebaut@kuleuven.be} including the code. The code itself does not need to be included and discussed in the report.
+Each student writes an \textbf{individual report}. This report must contain the \textbf{realization} of the aforementioned \textbf{objectives}. It must \textbf{demonstrate} that the student has \textbf{understood} the \textbf{communication model}. 
+
+All Python \textbf{code} must be well \textbf{documented}.
+The report and the code has to be send to \texttt{gilles.callebaut@kuleuven.be} and a printed version needs to be handed in. The \textbf{code} itself does \textbf{not} need to be \textbf{included and discussed} in the \textbf{report}. 
 The report is expected to be structured and styled as described in~\cite{hoogenboom2012write,kallestinova2011write}.
 
 The report needs to be \textbf{submitted} before \hardDeadline, preferably before \softDeadline.
 
 \cleardoublepage%
 \appendix
-\section{Template file}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/main.m}
-\clearpage
-\section{Library files}
-\subsection{\texttt{convert\_to\_binary\_stream.m}}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/convert_to_binary_stream.m}
-\subsection{\texttt{convert\_to\_dec\_stream.m}}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/convert_to_dec_stream.m}
-\subsection{\texttt{print\_arrow.m}}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/print_arrow.m}
-\clearpage
-\subsection{\texttt{bit\_size.m}}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/bit_size.m}
-\subsection{\texttt{gf2dec.m}}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/gf2dec.m}
-\subsection{\texttt{decodeJpeg.m}}
-\inputminted[linenos,tabsize=2,breaklines, fontsize=\footnotesize]{matlab}{../code/decodeJpeg.m}
-
-\section{MATLAB Toolboxes}\label{ap:sec:toolboxes}
-The following toolboxes should be installed:
+\section{Install Python Environment}
 \begin{itemize}
-  \item \texttt{communication toolbox}
-  %\item \texttt{data acq toolbox}
-  \item \texttt{signal blocks}
+	\item Install \href{https://www.anaconda.com/distribution/#download-section}{Anaconda 3} (Python 3.X)
+	\item Install Visual Studio Code (default when installing Anaconda) or your favorite edittor/IDE
 \end{itemize}
+
+
 
 
 \bibliographystyle{plain}
