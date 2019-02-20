@@ -16,11 +16,10 @@
 
 %-------------------- VARS ----------------------
 \newcommand{\authorName}{Gilles Callebaut}
-\newcommand{\dateSessionOne}{22/02/2019 13u30\ -\ 16u30}
-\newcommand{\dateSessionTwo}{08/03/2019 13u30\ -\ 16u30}
-\newcommand{\dateSessionThree}{22/03/2019 13u30\ -\ 16u30}
-\newcommand{\softDeadline}{04/04/2019}
-\newcommand{\hardDeadline}{11/04/2019}
+\newcommand{\dateSessionOne}{22/02/2019 13h30\ -\ 16h30}
+\newcommand{\dateSessionTwo}{08/03/2019 13h30\ -\ 16h30}
+\newcommand{\dateSessionThree}{22/03/2019 13h30\ -\ 16h30}
+\newcommand{\softDeadline}{04/04/2019\ -\ 20h00}
 
 \title{Lab Assignment --\ Data Transmission\\\vspace{0.5cm}{\Large Multimedia Networks}}
 \author{\authorName}
@@ -41,9 +40,12 @@
 \end{description}
 \vfill
 \begin{description}[style=multiline, leftmargin=4cm]
-	\item[Soft deadline] \softDeadline
-	\item[Hard deadline] \hardDeadline
+	\item[Deadline] \softDeadline
 \end{description}
+\vfill
+{\footnotesize
+This document is subjected to change, please consult the most recent version at: \url{https://github.com/GillesC/Data-Transmission---Multimedia-Networks}.
+}
 \end{minipage}
 \end{center}
 
@@ -57,7 +59,7 @@
 \section{Introduction}
 Claude Shannon, an engineer at Bell Telephone Laboratories, and Warren Weaver sought to identify the quickest and most efficient way to get a message from one point to another. As a result of their studies, they developed their model of communication.
 
-In these \textbf{three lab sessions} you are going to simulate a \textbf{communication model} as presented in Figure~\vref{fig:labo1multimedianetwerkendatatransmissiediagram}. This model is a simplified version of the Shannon-Weaver model of communication. The model will be implemented via \textbf{Python}.
+In these \textbf{three lab sessions} you are going to simulate a \textbf{communication model} as presented in Figure~\vref{fig:labo1multimedianetwerkendatatransmissiediagram}. This model is a simplified version of the Shannon-Weaver model of communication. The model will be implemented via \textbf{Python}. Through this model, the beneficial effects of source and channel coding are studied. 
 
 \begin{figure}[h]
 	\centering
@@ -71,7 +73,7 @@ An \textbf{image} will serve as the \textbf{information source}.
 %Encoding and decoding data is computation intensive. Therefore, choosing a small image (e.g.,~40$\times$40) is strongly advised. 
 To facilitate interoperability between the communication blocks, we suggest using a \textbf{bit stream} or a \textbf{byte stream} to \textbf{exchange} data between these blocks, i.e.\ every block will receive and send a bit or byte stream to the next one. %The MATLAB template will, by default, use bit streams while the Python template uses \texttt{uint\_8} (byte) streams.
 
-A Python template --and additional library functions-- can be found in the the following Github repository: \url{https://github.com/GillesC/Communication-Model-Python}.
+A Python template --and additional library functions-- can be found in the the following Github repository: \url{https://github.com/GillesC/Communication-Model-Python}. How to install the Python environment and the template code is discussed in the Appendix.
 
 \subsection{Source Encoding and Decoding}
 Use \textbf{Huffman} and \textbf{Lempel-Ziv-Welch} as a \textbf{source encoding} mechanism. Prior to using the provided template code, study the Huffman and Lempel-Ziv-Welch algorithm. 
@@ -116,8 +118,6 @@ After applying Reed-Solomon encoding,
 \end{question}
  
 
-
-
 \section{Objectives}
 \begin{itemize}
 	\item Build data transmission blocks via Python.%
@@ -134,14 +134,23 @@ All Python \textbf{code} must be well \textbf{documented}.
 The report and the code has to be send to \texttt{gilles.callebaut@kuleuven.be} and a printed version needs to be handed in. The \textbf{code} itself does \textbf{not} need to be \textbf{included and discussed} in the \textbf{report}. 
 The report is expected to be structured and styled as described in~\cite{hoogenboom2012write,kallestinova2011write}.
 
-The report needs to be \textbf{submitted} before \hardDeadline, preferably before \softDeadline.
+The report needs to be \textbf{submitted} before \softDeadline.
+
+\begin{description}
+	\item[File name format]  \texttt{<firstname>\_<lastname>\_MMN\_report.pdf}
+	\item[Language] Dutch or English (recommended)
+	\item[Number of pages] Write your report in a compact but concise way, following the
+	strategies presented in~\cite{hoogenboom2012write,kallestinova2011write}.
+\end{description}
 
 \cleardoublepage%
 \appendix
-\section{Install Python Environment}
+\section{Install Python Environment and Template Code}
 \begin{itemize}
 	\item Install \href{https://www.anaconda.com/distribution/#download-section}{Anaconda 3} (Python 3.X)
-	\item Install Visual Studio Code (default when installing Anaconda) or your favorite edittor/IDE
+	\item Install Visual Studio Code (default when installing Anaconda) or your favorite edittor/IDE (e.g., PyCharm and Thonny IDE)
+	\item Download the template code from Github: \url{https://github.com/GillesC/Communication-Model-Python}.
+	\item Install the packages through: \texttt{conda install --file requirements.txt} (in the project folder).
 \end{itemize}
 
 
