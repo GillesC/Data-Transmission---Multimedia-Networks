@@ -13,13 +13,15 @@
 \setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
 
+\usepackage{soul}
+
 
 %-------------------- VARS ----------------------
 \newcommand{\authorName}{Gilles Callebaut}
-\newcommand{\dateSessionOne}{22/02/2019 13h30\ -\ 16h30}
-\newcommand{\dateSessionTwo}{08/03/2019 13h30\ -\ 16h30}
-\newcommand{\dateSessionThree}{22/03/2019 13h30\ -\ 16h30}
-\newcommand{\softDeadline}{04/04/2019\ -\ 20h00}
+\newcommand{\dateSessionOne}{21/02/2020 13h30\ -\ 16h30}
+\newcommand{\dateSessionTwo}{06/03/2020 13h30\ -\ 16h30}
+\newcommand{\dateSessionThree}{\st{20/03/2019 13h30\ -\ 16h30}}
+\newcommand{\softDeadline}{\st{04/04/2020\ -\ 20h00} (TBD)}
 
 \title{Lab Assignment --\ Data Transmission\\\vspace{0.5cm}{\Large Multimedia Networks}}
 \author{\authorName}
@@ -92,7 +94,7 @@ Use \textbf{Huffman} and \textbf{Lempel-Ziv-Welch} as a \textbf{source encoding}
 \end{question}
 
 \begin{question}
-	What is the correlation between entropy and the number of bits per symbol? 
+	What is the correlation between entropy and the number of bits per symbol in the context of compression? 
 \end{question}
 
 
@@ -103,7 +105,7 @@ In this assignment modulation and channel characteristics can be neglected.
 After applying Reed-Solomon encoding, 
 \begin{itemize}
 	\item Simulate storing to disk
-	\item Hence, simulate bit errors (with defined error rate)
+	\item Hence, simulate bit errors (and define an error rate)
 	\item check if Reed-Solomon is able to resolve the introduced errors and compare with the theoretical limit (Singleton bound).
 	\item burst errors
 	\item errasures
@@ -147,10 +149,14 @@ The report needs to be \textbf{submitted} before \softDeadline.
 \appendix
 \section{Install Python Environment and Template Code}
 \begin{itemize}
-	\item Install \href{https://www.anaconda.com/distribution/#download-section}{Anaconda 3} (Python 3.X)
-	\item Install Visual Studio Code (default when installing Anaconda) or your favorite edittor/IDE (e.g., PyCharm and Thonny IDE)
+	\item Install \href{https://www.python.org/downloads}{Python 3.X}
+	\item Install Visual Studio Code or your favorite edittor/IDE (e.g., PyCharm and Thonny IDE)
 	\item Download the template code from Github: \url{https://github.com/GillesC/Communication-Model-Python}.
-	\item Install the packages through: \texttt{conda install -{}-file requirements.txt} (in the project folder).
+	\item Navigate to the project directory
+	\item Create a virtual environment in the project directory: \texttt{python -m venv .venv}
+	\item Activate the virtual environment:
+	\texttt{.\char`\\venv\char`\\Scripts\char`\\activate}
+	\item Install the packages through: \texttt{pip install -r requirements.txt} (in the project folder).
 \end{itemize}
 
 
