@@ -18,10 +18,10 @@
 
 %-------------------- VARS ----------------------
 \newcommand{\authorName}{Gilles Callebaut}
-\newcommand{\dateSessionOne}{21/02/2020 13h30\ -\ 16h30}
-\newcommand{\dateSessionTwo}{06/03/2020 13h30\ -\ 16h30}
-\newcommand{\dateSessionThree}{20/03/2019 13h30\ -\ 16h30}
-\newcommand{\softDeadline}{04/04/2020\ -\ 20h00}
+% \newcommand{\dateSessionOne}{21/02/2020 13h30\ -\ 16h30}
+% \newcommand{\dateSessionTwo}{06/03/2020 13h30\ -\ 16h30}
+% \newcommand{\dateSessionThree}{20/03/2019 13h30\ -\ 16h30}
+% \newcommand{\softDeadline}{04/04/2020\ -\ 20h00}
 
 \title{Lab Assignment --\ Data Transmission\\\vspace{0.5cm}{\Large Multimedia Networks}}
 \author{\authorName}
@@ -31,22 +31,23 @@
 \maketitle
 \vfill
 
-
 \begin{center}
 
   \begin{minipage}{0.65\linewidth}
-\begin{description}[style=multiline, leftmargin=4cm]
-	\item[Lab session 1] \dateSessionOne
-	\item[Lab session 2] \dateSessionTwo
-	\item[Lab session 3] \dateSessionThree
-\end{description}
-\vfill
-\begin{description}[style=multiline, leftmargin=4cm]
-	\item[Deadline] \softDeadline
-\end{description}
+% \begin{description}[style=multiline, leftmargin=4cm]
+% 	\item[Lab session 1] \dateSessionOne
+% 	\item[Lab session 2] \dateSessionTwo
+% 	\item[Lab session 3] \dateSessionThree
+% \end{description}
+% \vfill
+% \begin{description}[style=multiline, leftmargin=4cm]
+% 	\item[Deadline] \softDeadline
+% \end{description}
 \vfill
 {\footnotesize
-This document is subjected to change, please consult the most recent version at: \url{https://github.com/GillesC/Data-Transmission---Multimedia-Networks}.
+This document is subjected to change, please consult the most recent version at: \url{https://github.com/GillesC/Data-Transmission---Multimedia-Networks}.\\
+
+Adhere to the policies and guidelines of KU Leuven concerning the use of GenAI.
 }
 \end{minipage}
 \end{center}
@@ -75,7 +76,7 @@ An \textbf{image} will serve as the \textbf{information source}.
 %Encoding and decoding data is computation intensive. Therefore, choosing a small image (e.g.,~40$\times$40) is strongly advised. 
 To facilitate interoperability between the communication blocks, we suggest using a \textbf{bit stream} or a \textbf{byte stream} to \textbf{exchange} data between these blocks, i.e.\ every block will receive and send a bit or byte stream to the next one. %The MATLAB template will, by default, use bit streams while the Python template uses \texttt{uint\_8} (byte) streams.
 
-A Python template --and additional library functions-- can be found in the the following Github repository: \url{https://github.com/GillesC/Communication-Model-Python}. How to install the Python environment and the template code is discussed in the Appendix.
+A Python template --and additional library functions-- can be found in the the following Github repository: \url{https://github.com/GillesC/Communication-Model-Python}. 
 
 \subsection{Source Encoding and Decoding}
 Use \textbf{Huffman} and \textbf{Lempel-Ziv-Welch} as a \textbf{source encoding} mechanism. Prior to using the provided template code, study the Huffman and Lempel-Ziv-Welch algorithm. 
@@ -86,7 +87,7 @@ Use \textbf{Huffman} and \textbf{Lempel-Ziv-Welch} as a \textbf{source encoding}
 \end{question}
 
 \begin{question}
-	Why does the Lempel-Ziv-Welch Algorithm not group the first occurences of symbols when a combination of the symbols is present in the dictonary?
+	Why does the Lempel-Ziv-Welch Algorithm not group the first occurrences of symbols when a combination of the symbols is present in the dictionary?
 \end{question}
 
 \begin{question}
@@ -129,35 +130,32 @@ After applying Reed-Solomon encoding,
 	For instance, why is Huffman decoding slower than Huffman encoding?
 \end{itemize}
 
-\section{Report}
-Each student writes an \textbf{individual report}. This report must contain the \textbf{realization} of the aforementioned \textbf{objectives}. It must \textbf{demonstrate} that the student has \textbf{understood} the \textbf{communication model}. 
+\section{Evaluation -- Quiz and Code}
 
-All Python \textbf{code} must be well \textbf{documented}.
-The report and the code has to be send to \texttt{gilles.callebaut@kuleuven.be} and a printed version needs to be handed in. The \textbf{code} itself does \textbf{not} need to be \textbf{included and discussed} in the \textbf{report}. 
-The report is expected to be structured and styled as described in~\cite{hoogenboom2012write,kallestinova2011write}.
+\subsection{Quiz}
+The student will be evaluated using an intermediate quiz and source code. To prepare, consult the questions in this assignment and conduct the ´´experiments'' and programming yourself. The quiz will assess that the student has \textbf{understood} the \textbf{communication model}, based on the aforementioned objectives. 
 
-The report needs to be \textbf{submitted} before \softDeadline.
-
-\begin{description}
-	\item[File name format]  \texttt{<firstname>\_<lastname>\_MMN\_report.pdf}
-	\item[Language] Dutch or English (recommended)
-	\item[Number of pages] Write your report in a compact but concise way, following the
-	strategies presented in~\cite{hoogenboom2012write,kallestinova2011write}.
-\end{description}
-
-\cleardoublepage%
-\appendix
-\section{Install Python Environment and Template Code}
+\subsection{Source Code}
 \begin{itemize}
-	\item Install \href{https://www.python.org/downloads}{Python 3.X} (be sure to install the 64-bit version if applicable)
-	\item Install PyCharm or Visual Studio Code or your favorite edittor/IDE
-	\item Download the template code from Github: \url{https://github.com/GillesC/Communication-Model-Python}.
-	\item Navigate to the project directory
-	\item Create a virtual environment in the project directory: \texttt{python -m venv .venv}
-	\item Activate the virtual environment:
-	\texttt{.\char`\\venv\char`\\Scripts\char`\\activate}
-	\item Install the packages through: \texttt{pip install -r requirements.txt} (in the project folder).
+	\item All Python \textbf{code} must be well \textbf{documented}.
+	\item The code has to be send to \texttt{gilles.callebaut@kuleuven.be} before the deadline communicated with you during the lab sessions or Toledo.
+	\item Do \textbf{not} include your environment folder. 
+	\item Use the following file name format: \texttt{<firstname>\_<lastname>\_MMN\_code.zip}.
 \end{itemize}
+
+% \cleardoublepage%
+% \appendix
+% \section{Install Python Environment and Template Code}
+% \begin{itemize}
+% 	\item Install \href{https://www.python.org/downloads}{Python 3.X} (be sure to install the 64-bit version if applicable)
+% 	\item Install PyCharm or Visual Studio Code or your favorite edittor/IDE
+% 	\item Download the template code from Github: \url{https://github.com/GillesC/Communication-Model-Python}.
+% 	\item Navigate to the project directory
+% 	\item Create a virtual environment in the project directory: \texttt{python -m venv .venv}
+% 	\item Activate the virtual environment:
+% 	\texttt{.\char`\\venv\char`\\Scripts\char`\\activate}
+% 	\item Install the packages through: \texttt{pip install -r requirements.txt} (in the project folder).
+% \end{itemize}
 
 
 
